@@ -1,1 +1,1 @@
-# AtomicVLA
+# VP-VLA
