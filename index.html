@@ -407,7 +407,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Vision-Language-Action (VLA) models typically map visual observations and linguistic instructions directly to robotic control signals. This "black-box" mapping forces a single forward pass to simultaneously handle instruction interpretation, spatial grounding, and low-level control, often leading to poor spatial precision and limited robustness in out-of-distribution scenarios. To address these limitations, we propose VP-VLA, a dual-system framework that decouples high-level reasoning and low-level execution via a structured visual prompting interface. Specifically, a "System 2 Planner" decomposes complex instructions into sub-tasks and identifies relevant target objects and goal locations. These spatial anchors are then overlaid directly onto visual observations as structured visual prompts, such as crosshairs and bounding boxes. Guided by these prompts and enhanced by a novel auxiliary visual grounding objective during training, a "System 1 Controller" reliably generates precise low-level execution motions. Experiments on the Robocasa-GR1-Tabletop benchmark and SimplerEnv simulation demonstrate that VP-VLA improves success rates by 5% and 8.3%, surpassing competitive baselines including QwenOFT and GR00T-N1.6.
+              Vision-Language-Action (VLA) models typically map visual observations and linguistic instructions directly to robotic control signals. This "black-box" mapping forces a single forward pass to simultaneously handle instruction interpretation, spatial grounding, and low-level control, often leading to <b>poor spatial precision and limited robustness in out-of-distribution scenarios</b>. To address these limitations, we propose <b>VP-VLA, a dual-system framework that decouples high-level reasoning and low-level execution via a structured visual prompting interface</b>. Specifically, a "System 2 Planner" decomposes complex instructions into sub-tasks and identifies relevant target objects and goal locations. These spatial anchors are then overlaid directly onto visual observations as structured visual prompts, such as crosshairs and bounding boxes. Guided by these prompts and enhanced by a novel auxiliary visual grounding objective during training, a "System 1 Controller" reliably generates precise low-level execution motions. Experiments on the Robocasa-GR1-Tabletop benchmark and SimplerEnv simulation demonstrate that <b>VP-VLA improves success rates by 5% and 8.3%</b>, surpassing competitive baselines including QwenOFT and GR00T-N1.6.
             </p>
           </div>
         </div>
@@ -433,7 +433,7 @@
           <img src="static/images/pipeline.png" alt="VP-VLA pipeline" />
           <div class="content has-text-justified">
             <p>
-              VP-VLA adopts a dual-system pipeline that decouples high-level reasoning and low-level execution via structured visual prompting: the System 2 Planner uses a VLM to decompose complex language instructions into subtasks, identifies target objects and locations, and generates structured visual prompts (crosshairs, bounding boxes) via SAM for overlay on raw images; the System 1 Controller takes language instructions, raw visual observations and visual prompt images as inputs to produce precise sensorimotor trajectories for robots. In training, it combines L1 loss for action prediction with visual grounding loss on key frames (backpropagated only to the VLM backbone), ensuring the controller aligns with the spatial cues of visual prompts and boosting the spatial precision and robustness of multi-stage manipulation.
+              VP-VLA adopts a <b>dual-system pipeline that decouples high-level reasoning and low-level execution via structured visual prompting</b>: the System 2 Planner uses a VLM to decompose complex language instructions into subtasks, identifies target objects and locations, and generates structured visual prompts (crosshairs, bounding boxes) via SAM for overlay on raw images; the System 1 Controller takes language instructions, raw visual observations and visual prompt images as inputs to produce precise sensorimotor trajectories for robots. In training, it combines <b>L1 loss for action prediction with visual grounding loss on key frames</b> (backpropagated only to the VLM backbone), ensuring the controller aligns with the spatial cues of visual prompts and boosting the spatial precision and robustness of multi-stage manipulation.
             </p>
           </div>
         </div>
@@ -449,54 +449,8 @@
           <img src="static/images/result.png" alt="VP-VLA benchmark results" />
           <div class="content has-text-justified">
             <p>
-              On the Robocasa-GR1-Tabletop simulation benchmark, VP-VLA hits a state-of-the-art average success rate of 53.8%, outperforming the main baseline QwenOFT by 5% and surpassing other strong models like Isaac-GR00T N1.5/N1.6, with remarkable gains in multi-step pick-and-place and novel generalization tasks; on the SimplerEnv benchmark, it achieves a 58.3% average success rate, an 8.3% absolute improvement over QwenOFT, outperforming &pi;<sub>0.5</sub> and Isaac-GR00T-N1.6-Bridge, and excels in precise object identification and spatial grounding tasks such as putting eggplant in a yellow basket (95.8% success rate). Overall, VP-VLA outperforms all competitive baselines on both simulation benchmarks in both in-distribution and out-of-distribution settings.
+              On the Robocasa-GR1-Tabletop simulation benchmark, <b>VP-VLA hits a state-of-the-art average success rate of 53.8%</b>, outperforming the main baseline QwenOFT by 5% and surpassing other strong models like Isaac-GR00T N1.5/N1.6, with remarkable gains in multi-step pick-and-place and novel generalization tasks; on the SimplerEnv benchmark, it achieves <b>a 58.3% average success rate, an 8.3% absolute improvement over QwenOFT</b>, outperforming &pi;<sub>0.5</sub> and Isaac-GR00T-N1.6-Bridge, and excels in precise object identification and spatial grounding tasks such as putting eggplant in a yellow basket (95.8% success rate). Overall, <b>VP-VLA outperforms all competitive baselines on both simulation benchmarks</b> in both in-distribution and out-of-distribution settings.
             </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Simulation Env Results <span class="title-note">(Visual Prompt Overlay)</span></h2>
-        <div id="simulation-env-carousel" class="carousel results-carousel">
-          <div class="item">
-            <video poster="" autoplay controls muted loop playsinline height="100%">
-              <source src="static/videos/simulation_video/robocasa/episode_007_overlay.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video poster="" autoplay controls muted loop playsinline height="100%">
-              <source src="static/videos/simulation_video/robocasa/episode_028_overlay.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video poster="" autoplay controls muted loop playsinline height="100%">
-              <source src="static/videos/simulation_video/robocasa/episode_075_overlay.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video poster="" autoplay controls muted loop playsinline height="100%">
-              <source src="static/videos/simulation_video/simpler/episode_000_overlay.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video poster="" autoplay controls muted loop playsinline height="100%">
-              <source src="static/videos/simulation_video/simpler/episode_004_overlay.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video poster="" autoplay controls muted loop playsinline height="100%">
-              <source src="static/videos/simulation_video/simpler/episode_007_overlay.mp4"
-                      type="video/mp4">
-            </video>
           </div>
         </div>
       </div>
@@ -637,6 +591,52 @@
           <div class="item">
             <video poster="" autoplay controls muted loop playsinline height="100%">
               <source src="static/videos/vp-video/pick_color_egg_overlay_video_crosshair/green_egg_overlay_crosshair.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Simulation Env Results <span class="title-note">(Visual Prompt Overlay)</span></h2>
+        <div id="simulation-env-carousel" class="carousel results-carousel">
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/robocasa/episode_007_overlay.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/robocasa/episode_028_overlay.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/robocasa/episode_075_overlay.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/simpler/episode_000_overlay.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/simpler/episode_004_overlay.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/simpler/episode_007_overlay.mp4"
                       type="video/mp4">
             </video>
           </div>
