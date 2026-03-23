@@ -36,6 +36,7 @@ $(document).ready(function() {
       infinite: false,
       autoplay: false,
       autoplaySpeed: 3000,
+      breakpoints: [],
     };
 
     var carousels = [];
