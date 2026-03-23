@@ -29,17 +29,23 @@ $(document).ready(function() {
 
     });
 
-    var options = {
-			slidesToScroll: 3,
-			slidesToShow: 3,
-			loop: true,
-			infinite: true,
-			autoplay: false,
-			autoplaySpeed: 3000,
-    }
+    var sharedCarouselOptions = {
+      slidesToScroll: 3,
+      slidesToShow: 3,
+      loop: false,
+      infinite: false,
+      autoplay: false,
+      autoplaySpeed: 3000,
+    };
 
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
+    var carousels = [];
+    [
+      '#real-world-results-carousel',
+      '#real-world-overlay-carousel',
+      '#simulation-env-carousel'
+    ].forEach(function(selector) {
+      carousels = carousels.concat(bulmaCarousel.attach(selector, sharedCarouselOptions));
+    });
 
     // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
