@@ -390,13 +390,10 @@
   <section class="hero content-block">
     <div class="container is-max-desktop">
       <div class="item">
-        <iframe
-          src="https://www.youtube.com/embed/P-zoCRdNSNs"
-          title="VP-VLA demo video"
-          style="width: 100%; aspect-ratio: 16 / 9; border: 0;"
-          allow="autoplay; encrypted-media"
-          allowfullscreen>
-        </iframe>
+        <video poster="" autoplay controls muted loop playsinline style="width: 100%; aspect-ratio: 16 / 9;">
+          <source src="static/videos/VP-VLA_compress.mp4"
+                  type="video/mp4">
+        </video>
       </div>
     </div>
   </section>
@@ -454,6 +451,52 @@
             <p>
               On the Robocasa-GR1-Tabletop simulation benchmark, VP-VLA hits a state-of-the-art average success rate of 53.8%, outperforming the main baseline QwenOFT by 5% and surpassing other strong models like Isaac-GR00T N1.5/N1.6, with remarkable gains in multi-step pick-and-place and novel generalization tasks; on the SimplerEnv benchmark, it achieves a 58.3% average success rate, an 8.3% absolute improvement over QwenOFT, outperforming &pi;<sub>0.5</sub> and Isaac-GR00T-N1.6-Bridge, and excels in precise object identification and spatial grounding tasks such as putting eggplant in a yellow basket (95.8% success rate). Overall, VP-VLA outperforms all competitive baselines on both simulation benchmarks in both in-distribution and out-of-distribution settings.
             </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Simulation Env Results <span class="title-note">(Visual Prompt Overlay)</span></h2>
+        <div id="simulation-env-carousel" class="carousel results-carousel">
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/robocasa/episode_007_overlay.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/robocasa/episode_028_overlay.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/robocasa/episode_075_overlay.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/simpler/episode_000_overlay.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/simpler/episode_004_overlay.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/simulation_video/simpler/episode_007_overlay.mp4"
+                      type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
