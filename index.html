@@ -236,12 +236,63 @@
     }
 
     .dynamic-text {
-      font-size: 55px;
+      display: inline-block;
+      font-size: 62px;
       font-weight: 900;
-      background: linear-gradient(45deg, #70f7fe, #fbd7c6, #fdefac, #bfb5dd, #bed5f5);
-      -webkit-background-clip: text;
-      color: transparent;
-      animation: dynamic-gradient 10s linear infinite;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0f172a;
+      text-shadow: 0 1px 0 #ffffff, 0 10px 30px rgba(15, 23, 42, 0.12);
+      position: relative;
+    }
+
+    .dynamic-text::before {
+      content: "";
+      position: absolute;
+      left: -0.12em;
+      right: -0.12em;
+      bottom: 0.1em;
+      height: 0.28em;
+      background: linear-gradient(90deg, rgba(34, 197, 94, 0.18), rgba(59, 130, 246, 0.24), rgba(249, 115, 22, 0.18));
+      border-radius: 999px;
+      z-index: -1;
+      transform-origin: center;
+      animation: title-glow 4s ease-in-out infinite;
+    }
+
+    .hero-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .hero-link-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.7rem 1.1rem;
+      border-radius: 999px;
+      background: #1f2937;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+    }
+
+    .hero-link-button:hover {
+      color: #ffffff;
+      background: #111827;
+      transform: translateY(-1px);
+    }
+
+    .hero-link-button .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .title-note {
@@ -260,6 +311,19 @@
 
       to {
         background-position: 2000px 0;
+      }
+    }
+
+    @keyframes title-glow {
+      0%,
+      100% {
+        transform: scaleX(0.96);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scaleX(1.02);
+        opacity: 1;
       }
     }
   </style>
@@ -299,6 +363,21 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>*</sup>Equal Contribution</span>
+            </div>
+
+            <div class="hero-links">
+              <a class="hero-link-button" href="#" target="_blank" rel="noopener noreferrer">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>arXiv</span>
+              </a>
+              <a class="hero-link-button" href="#" target="_blank" rel="noopener noreferrer">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
             </div>
           </div>
         </div>
